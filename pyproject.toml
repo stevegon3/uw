@@ -1,0 +1,18 @@
+[project]
+name = "uw"
+version = "1.0.0"
+description = ""
+authors = [
+    {name = "steve gon",email = "7094501+stevegon3@users.noreply.github.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas (>=2.3.3,<3.0.0)",
+    "psycopg (>=3.3.2,<4.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
