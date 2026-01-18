@@ -7,7 +7,7 @@ def scrub_col(col):
 
 def convert_to_float(df, ignore_cols=['date']):
     # Takes DF and updates it in place
-    obj_cols = monthly_prices.select_dtypes(include=['object']).columns
+    obj_cols = df.select_dtypes(include=['object']).columns
     obj_cols = [x for x in obj_cols if x not in ignore_cols]
     if obj_cols:
         df[obj_cols] = df[obj_cols].astype(float)
@@ -36,5 +36,5 @@ if __name__ == "__main__":
     all_monthly_daily = all_monthly.resample('D').ffill()
     daily_df_all = daily_df.join([all_monthly_daily], how='left')
     print(daily_df_all.tail(3))
-    with pd.ExcelWriter('daily.xlsx') as writer:
+    with pd.ExcelWriter('daily2.xlsx') as writer:
         daily_df_all.to_excel(writer, sheet_name='daily')

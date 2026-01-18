@@ -1,0 +1,3 @@
+This is my human generated text, I Steve wrote this with absolutely no assistance from AI. Machine Learning is about recognizing patterns and adapting to new data as it comes in. Models can overfit if you do not hold back enough data to test on, ie, you are training on a full data set. A good Data Scientist will always keep this in mind and employ efforts to not overfit their models. 
+
+Decision Trees are a very common machine learning model. They are very powerful and can be used in a wide variety of settings. Again, another danger in Decision Trees is overfitting. You can have a tree almost exactly predict every outcome if you use enough branches and details. But then, when new data comes in, the model makes incorrect predictions.
