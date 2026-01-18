@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="2.17 SGonzales.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
+    <script-file value="$PROJECT_DIR$/IMT543/2.17 SGonzales.sql" />
+    <script-mode>FILE</script-mode>
+    <data-source id="8e4e1411-2b0e-4d35-9e72-5e6b7b6a407c" namespace="database/&quot;uw&quot;/schema/&quot;imt543&quot;" />
+    <method v="2" />
+  </configuration>
+</component>

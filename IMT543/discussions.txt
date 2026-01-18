@@ -1,0 +1,56 @@
+Data Cleansing
+Null Handling: Replace nulls with defaults or derived values
+Standardization: Convert data to consistent formats (e.g., dates, phone numbers)
+Deduplication: Remove duplicate records
+Validation: Enforce data quality rules and constraints
+2. Structural Transformations
+Column Renaming: Map source columns to target columns
+Column Splitting/Combining: Break down or merge columns
+Row Filtering: Include/exclude rows based on conditions
+Pivoting/Unpivoting: Convert between row and column formats
+3. Data Type Conversions
+Type Casting: Convert between string, numeric, date, etc.
+Format Conversion: Change date formats, number formats
+Encoding Conversion: Handle different character encodings
+4. Calculations and Derived Values
+Mathematical Operations: Basic arithmetic, aggregations
+String Manipulation: Concatenation, substring, case changes
+Date/Time Functions: Date arithmetic, formatting
+Business Logic: Apply business rules and calculations
+5. Data Enrichment
+Lookups: Join with reference data
+Geocoding: Convert addresses to coordinates
+External API Integration: Fetch additional data
+Derived Attributes: Calculate new fields
+6. Data Quality Transformations
+Data Profiling: Analyze data characteristics
+Anomaly Detection: Identify outliers
+Data Masking: Protect sensitive information
+Data Validation: Enforce referential integrity
+7. Performance Optimizations
+Partitioning: Split data for parallel processing
+Sorting: Order data for efficient loading
+Indexing: Create indexes for faster queries
+Compression: Reduce data volume
+8. Compliance Transformations
+Data Redaction: Hide sensitive information
+Tokenization: Replace sensitive data with tokens
+Audit Trail: Add metadata for tracking changes
+Data Retention: Apply retention policies
+9. Dimensional Modeling
+Surrogate Keys: Generate unique identifiers
+Slowly Changing Dimensions (SCD): Handle historical data
+Hierarchies: Create parent-child relationships
+Aggregations: Pre-calculate summary data
+10. Error Handling
+
+Data Cleansing
+Structural Transformations
+Data Type Conversions
+Calculations and Derived Values
+Data Enrichment
+Data Quality Transformations
+Performance Optimizations
+Compliance Transformations
+Dimensional Modeling
+Error Handling

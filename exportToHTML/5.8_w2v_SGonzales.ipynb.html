@@ -1,0 +1,282 @@
+<html>
+<head>
+<title>5.8_w2v_SGonzales.ipynb</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #bcbec4;}
+.s1 { color: #7a7e85;}
+.s2 { color: #cf8e6d;}
+.s3 { color: #bcbec4;}
+.s4 { color: #6aab73;}
+.s5 { color: #2aacb8;}
+.s6 { color: #5f826b; font-style: italic;}
+.ls0 { height: 1px; border-width: 0; color: #43454a; background-color:#43454a}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+5.8_w2v_SGonzales.ipynb</font>
+</center></td></tr></table>
+<pre><span class="s0">#%% 
+</span><span class="s1"># !pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu</span><hr class="ls0"><span class="s0">#%% 
+</span><span class="s2">import </span><span class="s0">torch</span>
+<span class="s2">from </span><span class="s0">torch</span><span class="s3">.</span><span class="s0">autograd </span><span class="s2">import </span><span class="s0">Variable</span>
+<span class="s2">import </span><span class="s0">numpy </span><span class="s2">as </span><span class="s0">np</span>
+<span class="s2">import </span><span class="s0">torch</span><span class="s3">.</span><span class="s0">functional </span><span class="s2">as </span><span class="s0">F</span>
+<span class="s2">import </span><span class="s0">torch</span><span class="s3">.</span><span class="s0">nn</span><span class="s3">.</span><span class="s0">functional </span><span class="s2">as </span><span class="s0">F</span><hr class="ls0"><span class="s0">#%% 
+corpus </span><span class="s3">= [</span>
+    <span class="s4">'he is a king'</span><span class="s3">,</span>
+    <span class="s4">'she is a queen'</span><span class="s3">,</span>
+    <span class="s4">'he is a man'</span><span class="s3">,</span>
+    <span class="s4">'she is a woman'</span><span class="s3">,</span>
+    <span class="s4">'warsaw is poland capital'</span><span class="s3">,</span>
+    <span class="s4">'berlin is germany capital'</span><span class="s3">,</span>
+    <span class="s4">'paris is france capital'</span><span class="s3">,   </span>
+<span class="s3">]</span><hr class="ls0"><span class="s0">#%% 
+</span><span class="s2">def </span><span class="s0">tokenize_corpus</span><span class="s3">(</span><span class="s0">corpus</span><span class="s3">):</span>
+    <span class="s0">tokens </span><span class="s3">= [</span><span class="s0">x</span><span class="s3">.</span><span class="s0">split</span><span class="s3">() </span><span class="s2">for </span><span class="s0">x </span><span class="s2">in </span><span class="s0">corpus</span><span class="s3">]</span>
+    <span class="s2">return </span><span class="s0">tokens</span>
+
+<span class="s0">tokenized_corpus </span><span class="s3">= </span><span class="s0">tokenize_corpus</span><span class="s3">(</span><span class="s0">corpus</span><span class="s3">)</span>
+<span class="s0">print</span><span class="s3">(</span><span class="s0">tokenized_corpus</span><span class="s3">)</span><hr class="ls0"><span class="s0">#%% 
+</span><span class="s2">def </span><span class="s0">gen_index</span><span class="s3">(</span><span class="s0">tokenized_corpus</span><span class="s3">):</span>
+    <span class="s0">vocabulary </span><span class="s3">= []</span>
+    <span class="s2">for </span><span class="s0">sentence </span><span class="s2">in </span><span class="s0">tokenized_corpus</span><span class="s3">:</span>
+        <span class="s2">for </span><span class="s0">token </span><span class="s2">in </span><span class="s0">sentence</span><span class="s3">:</span>
+            <span class="s2">if </span><span class="s0">token </span><span class="s2">not in </span><span class="s0">vocabulary</span><span class="s3">:</span>
+                <span class="s0">vocabulary</span><span class="s3">.</span><span class="s0">append</span><span class="s3">(</span><span class="s0">token</span><span class="s3">)</span>
+
+    <span class="s0">word2idx </span><span class="s3">= {</span><span class="s0">w</span><span class="s3">: </span><span class="s0">idx </span><span class="s2">for </span><span class="s3">(</span><span class="s0">idx</span><span class="s3">, </span><span class="s0">w</span><span class="s3">) </span><span class="s2">in </span><span class="s0">enumerate</span><span class="s3">(</span><span class="s0">vocabulary</span><span class="s3">)}</span>
+    <span class="s0">idx2word </span><span class="s3">= {</span><span class="s0">idx</span><span class="s3">: </span><span class="s0">w </span><span class="s2">for </span><span class="s3">(</span><span class="s0">idx</span><span class="s3">, </span><span class="s0">w</span><span class="s3">) </span><span class="s2">in </span><span class="s0">enumerate</span><span class="s3">(</span><span class="s0">vocabulary</span><span class="s3">)}</span>
+
+    <span class="s0">vocabulary_size </span><span class="s3">= </span><span class="s0">len</span><span class="s3">(</span><span class="s0">vocabulary</span><span class="s3">)</span>
+    <span class="s2">return </span><span class="s0">word2idx</span><span class="s3">, </span><span class="s0">idx2word</span><span class="s3">, </span><span class="s0">vocabulary_size</span>
+<span class="s0">word2idx</span><span class="s3">, </span><span class="s0">idx2word</span><span class="s3">, </span><span class="s0">vocabulary_size </span><span class="s3">= </span><span class="s0">gen_index</span><span class="s3">(</span><span class="s0">tokenized_corpus</span><span class="s3">)</span><hr class="ls0"><span class="s0">#%% 
+</span><span class="s2">def </span><span class="s0">gen_index_pairs</span><span class="s3">(</span><span class="s0">tokenized_corpus</span><span class="s3">, </span><span class="s0">word2idx</span><span class="s3">=</span><span class="s0">word2idx</span><span class="s3">, </span><span class="s0">window_size</span><span class="s3">=</span><span class="s5">2</span><span class="s3">):</span>
+    <span class="s0">idx_pairs </span><span class="s3">= []</span>
+    <span class="s1"># for each sentence</span>
+    <span class="s2">for </span><span class="s0">sentence </span><span class="s2">in </span><span class="s0">tokenized_corpus</span><span class="s3">:</span>
+        <span class="s0">indices </span><span class="s3">= [</span><span class="s0">word2idx</span><span class="s3">[</span><span class="s0">word</span><span class="s3">] </span><span class="s2">for </span><span class="s0">word </span><span class="s2">in </span><span class="s0">sentence</span><span class="s3">]</span>
+        <span class="s1"># for each word, threated as center word</span>
+        <span class="s2">for </span><span class="s0">center_word_pos </span><span class="s2">in </span><span class="s0">range</span><span class="s3">(</span><span class="s0">len</span><span class="s3">(</span><span class="s0">indices</span><span class="s3">)):</span>
+            <span class="s1"># for each window position</span>
+            <span class="s2">for </span><span class="s0">w </span><span class="s2">in </span><span class="s0">range</span><span class="s3">(-</span><span class="s0">window_size</span><span class="s3">, </span><span class="s0">window_size </span><span class="s3">+ </span><span class="s5">1</span><span class="s3">):</span>
+                <span class="s0">context_word_pos </span><span class="s3">= </span><span class="s0">center_word_pos </span><span class="s3">+ </span><span class="s0">w</span>
+                <span class="s1"># make soure not jump out sentence</span>
+                <span class="s2">if </span><span class="s0">context_word_pos </span><span class="s3">&lt; </span><span class="s5">0 </span><span class="s2">or </span><span class="s0">context_word_pos </span><span class="s3">&gt;= </span><span class="s0">len</span><span class="s3">(</span><span class="s0">indices</span><span class="s3">) </span><span class="s2">or </span><span class="s0">center_word_pos </span><span class="s3">== </span><span class="s0">context_word_pos</span><span class="s3">:</span>
+                    <span class="s2">continue</span>
+                <span class="s0">context_word_idx </span><span class="s3">= </span><span class="s0">indices</span><span class="s3">[</span><span class="s0">context_word_pos</span><span class="s3">]</span>
+                <span class="s0">idx_pairs</span><span class="s3">.</span><span class="s0">append</span><span class="s3">((</span><span class="s0">indices</span><span class="s3">[</span><span class="s0">center_word_pos</span><span class="s3">], </span><span class="s0">context_word_idx</span><span class="s3">))</span>
+
+    <span class="s0">idx_pairs </span><span class="s3">= </span><span class="s0">np</span><span class="s3">.</span><span class="s0">array</span><span class="s3">(</span><span class="s0">idx_pairs</span><span class="s3">) </span><span class="s1"># it will be useful to have this as numpy array</span>
+    <span class="s2">return </span><span class="s0">idx_pairs</span>
+<span class="s0">idx_pairs </span><span class="s3">= </span><span class="s0">gen_index_pairs</span><span class="s3">(</span><span class="s0">tokenized_corpus</span><span class="s3">)</span><hr class="ls0"><span class="s0">#%% 
+</span><span class="s2">def </span><span class="s0">get_input_layer</span><span class="s3">(</span><span class="s0">word_idx</span><span class="s3">, </span><span class="s0">vocabulary_size</span><span class="s3">):</span>
+    <span class="s0">x </span><span class="s3">= </span><span class="s0">torch</span><span class="s3">.</span><span class="s0">zeros</span><span class="s3">(</span><span class="s0">vocabulary_size</span><span class="s3">).</span><span class="s0">float</span><span class="s3">()</span>
+    <span class="s0">x</span><span class="s3">[</span><span class="s0">word_idx</span><span class="s3">] = </span><span class="s5">1.0</span>
+    <span class="s2">return </span><span class="s0">x</span><hr class="ls0"><span class="s0">#%% 
+embedding_dims</span><span class="s3">, </span><span class="s0">num_epochs </span><span class="s3">= </span><span class="s5">5</span><span class="s3">, </span><span class="s5">101 </span><span class="s1"># This is the original</span>
+<span class="s0">learning_rate </span><span class="s3">= </span><span class="s5">0.001</span>
+
+<span class="s2">def </span><span class="s0">w2v_train</span><span class="s3">(</span><span class="s0">embedding_dims</span><span class="s3">, </span><span class="s0">num_epochs</span><span class="s3">, </span><span class="s0">learning_rate</span><span class="s3">, </span><span class="s0">vocabulary_size</span><span class="s3">, </span><span class="s0">idx_pairs</span><span class="s3">=</span><span class="s0">idx_pairs</span><span class="s3">, </span><span class="s0">print_loss</span><span class="s3">=</span><span class="s2">True</span><span class="s3">):</span>
+    <span class="s6">&quot;&quot;&quot;Train a Word2Vec model using the Skip-Gram approach.&quot;&quot;&quot;</span>
+    <span class="s1"># Adding so that results are always the same</span>
+    <span class="s0">torch</span><span class="s3">.</span><span class="s0">manual_seed</span><span class="s3">(</span><span class="s5">0</span><span class="s3">)</span>
+    <span class="s0">np</span><span class="s3">.</span><span class="s0">random</span><span class="s3">.</span><span class="s0">seed</span><span class="s3">(</span><span class="s5">0</span><span class="s3">)</span>
+    <span class="s0">W1 </span><span class="s3">= </span><span class="s0">Variable</span><span class="s3">(</span><span class="s0">torch</span><span class="s3">.</span><span class="s0">randn</span><span class="s3">(</span><span class="s0">embedding_dims</span><span class="s3">, </span><span class="s0">vocabulary_size</span><span class="s3">).</span><span class="s0">float</span><span class="s3">(), </span><span class="s0">requires_grad</span><span class="s3">=</span><span class="s2">True</span><span class="s3">)</span>
+    <span class="s0">W2 </span><span class="s3">= </span><span class="s0">Variable</span><span class="s3">(</span><span class="s0">torch</span><span class="s3">.</span><span class="s0">randn</span><span class="s3">(</span><span class="s0">vocabulary_size</span><span class="s3">, </span><span class="s0">embedding_dims</span><span class="s3">).</span><span class="s0">float</span><span class="s3">(), </span><span class="s0">requires_grad</span><span class="s3">=</span><span class="s2">True</span><span class="s3">)</span>
+    <span class="s2">for </span><span class="s0">epo </span><span class="s2">in </span><span class="s0">range</span><span class="s3">(</span><span class="s0">num_epochs</span><span class="s3">):</span>
+        <span class="s0">loss_val </span><span class="s3">= </span><span class="s5">0</span>
+        <span class="s2">for </span><span class="s0">data</span><span class="s3">, </span><span class="s0">target </span><span class="s2">in </span><span class="s0">idx_pairs</span><span class="s3">:</span>
+            <span class="s0">x </span><span class="s3">= </span><span class="s0">Variable</span><span class="s3">(</span><span class="s0">get_input_layer</span><span class="s3">(</span><span class="s0">data</span><span class="s3">, </span><span class="s0">vocabulary_size</span><span class="s3">)).</span><span class="s0">float</span><span class="s3">()</span>
+            <span class="s0">y_true </span><span class="s3">= </span><span class="s0">Variable</span><span class="s3">(</span><span class="s0">torch</span><span class="s3">.</span><span class="s0">from_numpy</span><span class="s3">(</span><span class="s0">np</span><span class="s3">.</span><span class="s0">array</span><span class="s3">([</span><span class="s0">target</span><span class="s3">])).</span><span class="s0">long</span><span class="s3">())</span>
+
+            <span class="s0">z1 </span><span class="s3">= </span><span class="s0">torch</span><span class="s3">.</span><span class="s0">matmul</span><span class="s3">(</span><span class="s0">W1</span><span class="s3">, </span><span class="s0">x</span><span class="s3">)</span>
+            <span class="s0">z2 </span><span class="s3">= </span><span class="s0">torch</span><span class="s3">.</span><span class="s0">matmul</span><span class="s3">(</span><span class="s0">W2</span><span class="s3">, </span><span class="s0">z1</span><span class="s3">)</span>
+
+            <span class="s0">log_softmax </span><span class="s3">= </span><span class="s0">F</span><span class="s3">.</span><span class="s0">log_softmax</span><span class="s3">(</span><span class="s0">z2</span><span class="s3">, </span><span class="s0">dim</span><span class="s3">=</span><span class="s5">0</span><span class="s3">)</span>
+
+            <span class="s0">loss </span><span class="s3">= </span><span class="s0">F</span><span class="s3">.</span><span class="s0">nll_loss</span><span class="s3">(</span><span class="s0">log_softmax</span><span class="s3">.</span><span class="s0">view</span><span class="s3">(</span><span class="s5">1</span><span class="s3">,-</span><span class="s5">1</span><span class="s3">), </span><span class="s0">y_true</span><span class="s3">)</span>
+            <span class="s1"># print(data, loss.data[0])</span>
+            <span class="s0">loss_val </span><span class="s3">+= </span><span class="s0">loss</span><span class="s3">.</span><span class="s0">item</span><span class="s3">()</span>
+
+            <span class="s0">loss</span><span class="s3">.</span><span class="s0">backward</span><span class="s3">()</span>
+            <span class="s0">W1</span><span class="s3">.</span><span class="s0">data </span><span class="s3">-= </span><span class="s0">learning_rate </span><span class="s3">* </span><span class="s0">W1</span><span class="s3">.</span><span class="s0">grad</span><span class="s3">.</span><span class="s0">data</span>
+            <span class="s0">W2</span><span class="s3">.</span><span class="s0">data </span><span class="s3">-= </span><span class="s0">learning_rate </span><span class="s3">* </span><span class="s0">W2</span><span class="s3">.</span><span class="s0">grad</span><span class="s3">.</span><span class="s0">data</span>
+
+            <span class="s0">W1</span><span class="s3">.</span><span class="s0">grad</span><span class="s3">.</span><span class="s0">data</span><span class="s3">.</span><span class="s0">zero_</span><span class="s3">()</span>
+            <span class="s0">W2</span><span class="s3">.</span><span class="s0">grad</span><span class="s3">.</span><span class="s0">data</span><span class="s3">.</span><span class="s0">zero_</span><span class="s3">()</span>
+        <span class="s2">if </span><span class="s0">print_loss </span><span class="s2">and </span><span class="s0">epo </span><span class="s3">% </span><span class="s5">10 </span><span class="s3">== </span><span class="s5">0</span><span class="s3">:</span>
+            <span class="s0">print</span><span class="s3">(</span><span class="s4">f'Loss at epo </span><span class="s2">{</span><span class="s0">epo</span><span class="s2">}</span><span class="s4">: </span><span class="s2">{</span><span class="s0">loss_val</span><span class="s3">/</span><span class="s0">len</span><span class="s3">(</span><span class="s0">idx_pairs</span><span class="s3">)</span><span class="s2">}</span><span class="s4">'</span><span class="s3">)</span>
+    <span class="s2">return </span><span class="s0">W1</span><span class="s3">, </span><span class="s0">W2</span>
+
+<span class="s0">W1</span><span class="s3">, </span><span class="s0">W2 </span><span class="s3">= </span><span class="s0">w2v_train</span><span class="s3">(</span><span class="s0">embedding_dims</span><span class="s3">, </span><span class="s0">num_epochs</span><span class="s3">, </span><span class="s0">learning_rate</span><span class="s3">, </span><span class="s0">vocabulary_size</span><span class="s3">)</span>
+
+<span class="s2">def </span><span class="s0">similarity</span><span class="s3">(</span><span class="s0">v</span><span class="s3">,</span><span class="s0">u</span><span class="s3">):</span>
+    <span class="s2">return </span><span class="s0">torch</span><span class="s3">.</span><span class="s0">dot</span><span class="s3">(</span><span class="s0">v</span><span class="s3">,</span><span class="s0">u</span><span class="s3">)/(</span><span class="s0">torch</span><span class="s3">.</span><span class="s0">norm</span><span class="s3">(</span><span class="s0">v</span><span class="s3">)*</span><span class="s0">torch</span><span class="s3">.</span><span class="s0">norm</span><span class="s3">(</span><span class="s0">u</span><span class="s3">))</span><hr class="ls0"><span class="s0">#%% 
+word_pairs </span><span class="s3">= [</span>
+    <span class="s3">(</span><span class="s4">&quot;she&quot;</span><span class="s3">, </span><span class="s4">&quot;king&quot;</span><span class="s3">),</span>
+    <span class="s3">(</span><span class="s4">&quot;she&quot;</span><span class="s3">, </span><span class="s4">&quot;queen&quot;</span><span class="s3">),</span>
+    <span class="s3">(</span><span class="s4">&quot;he&quot;</span><span class="s3">, </span><span class="s4">&quot;king&quot;</span><span class="s3">),</span>
+    <span class="s3">(</span><span class="s4">&quot;he&quot;</span><span class="s3">, </span><span class="s4">&quot;queen&quot;</span><span class="s3">),</span>
+    <span class="s3">(</span><span class="s4">&quot;warsaw&quot;</span><span class="s3">, </span><span class="s4">&quot;berlin&quot;</span><span class="s3">),</span>
+    <span class="s3">(</span><span class="s4">&quot;warsaw&quot;</span><span class="s3">, </span><span class="s4">&quot;paris&quot;</span><span class="s3">),</span>
+    <span class="s3">(</span><span class="s4">&quot;berlin&quot;</span><span class="s3">, </span><span class="s4">&quot;paris&quot;</span><span class="s3">),]</span>
+
+<span class="s2">def </span><span class="s0">score_word_pairs</span><span class="s3">(</span><span class="s0">word_pairs</span><span class="s3">, </span><span class="s0">W2</span><span class="s3">=</span><span class="s0">W2</span><span class="s3">, </span><span class="s0">word2idx</span><span class="s3">=</span><span class="s0">word2idx</span><span class="s3">):</span>
+    <span class="s2">for </span><span class="s0">word1</span><span class="s3">, </span><span class="s0">word2 </span><span class="s2">in </span><span class="s0">word_pairs</span><span class="s3">:</span>
+        <span class="s0">s </span><span class="s3">= </span><span class="s0">similarity</span><span class="s3">(</span><span class="s0">W2</span><span class="s3">[</span><span class="s0">word2idx</span><span class="s3">[</span><span class="s0">word1</span><span class="s3">]], </span><span class="s0">W2</span><span class="s3">[</span><span class="s0">word2idx</span><span class="s3">[</span><span class="s0">word2</span><span class="s3">]])</span>
+        <span class="s0">print</span><span class="s3">(</span><span class="s4">f'SIMILARITY </span><span class="s2">{</span><span class="s0">word1</span><span class="s2">} </span><span class="s4">- </span><span class="s2">{</span><span class="s0">word2</span><span class="s2">}</span><span class="s4">: </span><span class="s2">{</span><span class="s0">s</span><span class="s3">.</span><span class="s0">item</span><span class="s3">()</span><span class="s2">}</span><span class="s4">'</span><span class="s3">)</span>
+<span class="s0">score_word_pairs</span><span class="s3">(</span><span class="s0">word_pairs</span><span class="s3">)</span><hr class="ls0"><span class="s0">#%% md 
+&lt;b&gt;Question 1:&lt;/b&gt;&lt;p&gt; 
+``` 
+similarity(&quot;she”, &quot;king&quot;) = ? 
+similarity(&quot;She&quot;, &quot;queen&quot;) = ? 
+``` 
+&lt;b&gt;Which pair is more similar? Does the model match your expectations?&lt;/b&gt;&lt;p&gt; 
+``` 
+SIMILARITY she - king: 0.27248474955558777 
+SIMILARITY she - queen: -0.05312594398856163 
+``` 
+King has a much higher, positive score than queen, which is NOT expected, as 'she and queen' are more similar than 'she and king'.&lt;p&gt; 
+Possible reasons why this is not as expected: 
+ - Corpus is too small 
+ - There is not a strong similarity between 'she' and 'queen' is that 'she' and 'queen' have two words in between them (see cell 4 where I print out the tokens).&lt;p&gt; <hr class="ls0">#%% 
+score_word_pairs</span><span class="s3">([(</span><span class="s4">&quot;she&quot;</span><span class="s3">, </span><span class="s4">&quot;king&quot;</span><span class="s3">),(</span><span class="s4">&quot;she&quot;</span><span class="s3">, </span><span class="s4">&quot;queen&quot;</span><span class="s3">)])</span><hr class="ls0"><span class="s0">#%% md 
+&lt;b&gt;Question 2:&lt;/b&gt;&lt;p&gt; 
+``` 
+similarity(&quot;warsaw&quot;, &quot;poland&quot;) = ? 
+similarity(&quot;warsaw&quot;, &quot;germany&quot;) = ? 
+``` 
+&lt;b&gt;Which pair is more similar? Does the model match your expectations?&lt;/b&gt;&lt;p&gt; 
+Warsaw and Poland have a positive score, while Warsaw and Germany have a negative score. This is expected, as Warsaw is the capital of Poland, but not of Germany.&lt;p&gt; <hr class="ls0">#%% 
+score_word_pairs</span><span class="s3">([(</span><span class="s4">&quot;warsaw&quot;</span><span class="s3">, </span><span class="s4">&quot;poland&quot;</span><span class="s3">),(</span><span class="s4">&quot;warsaw&quot;</span><span class="s3">, </span><span class="s4">&quot;germany&quot;</span><span class="s3">)])</span><hr class="ls0"><span class="s0">#%% md 
+&lt;b&gt;Question 3:&lt;/b&gt;&lt;p&gt; 
+``` 
+similarity(&quot;warsaw&quot;, &quot;capital&quot;) = ? 
+similarity(&quot;poland&quot;, &quot;capital&quot;) = ? 
+``` 
+&lt;b&gt;Which pair is more similar? Does the model match your expectations?&lt;/b&gt;&lt;p&gt; 
+Given 'warsaw is poland capital' these results are as expected. 'Poland' is actually closer to 'capital' in the corpus, so it results in a higher score. We might try tuning the model to get the score greater than .5&lt;p&gt; <hr class="ls0">#%% 
+score_word_pairs</span><span class="s3">([(</span><span class="s4">&quot;warsaw&quot;</span><span class="s3">, </span><span class="s4">&quot;capital&quot;</span><span class="s3">),(</span><span class="s4">&quot;poland&quot;</span><span class="s3">, </span><span class="s4">&quot;capital&quot;</span><span class="s3">)])</span><hr class="ls0"><span class="s0">#%% 
+W1</span><span class="s3">, </span><span class="s0">W2 </span><span class="s3">= </span><span class="s0">w2v_train</span><span class="s3">(</span><span class="s0">embedding_dims</span><span class="s3">, </span><span class="s0">num_epochs</span><span class="s3">, </span><span class="s0">learning_rate</span><span class="s3">, </span><span class="s0">vocabulary_size</span><span class="s3">, </span><span class="s0">idx_pairs</span><span class="s3">, </span><span class="s2">False</span><span class="s3">)</span>
+<span class="s0">score_word_pairs</span><span class="s3">([(</span><span class="s4">&quot;she&quot;</span><span class="s3">, </span><span class="s4">&quot;king&quot;</span><span class="s3">),(</span><span class="s4">&quot;she&quot;</span><span class="s3">, </span><span class="s4">&quot;queen&quot;</span><span class="s3">)])</span>
+<span class="s0">score_word_pairs</span><span class="s3">([(</span><span class="s4">&quot;warsaw&quot;</span><span class="s3">, </span><span class="s4">&quot;poland&quot;</span><span class="s3">),(</span><span class="s4">&quot;warsaw&quot;</span><span class="s3">, </span><span class="s4">&quot;germany&quot;</span><span class="s3">)])</span>
+<span class="s0">score_word_pairs</span><span class="s3">([(</span><span class="s4">&quot;warsaw&quot;</span><span class="s3">, </span><span class="s4">&quot;capital&quot;</span><span class="s3">),(</span><span class="s4">&quot;poland&quot;</span><span class="s3">, </span><span class="s4">&quot;capital&quot;</span><span class="s3">)])</span><hr class="ls0"><span class="s0">#%% md 
+&lt;b&gt;Question 4:&lt;/b&gt;&lt;p&gt; 
+&lt;b&gt;Retrain the model with embedding_dims = 8 and epochs = 201 and check the pairs above again.&lt;p&gt; 
+Does the model seem to do better, worse, or about the same? Why?&lt;/b&gt;&lt;p&gt; 
+ <hr class="ls0">#%% 
+embedding_dims</span><span class="s3">, </span><span class="s0">num_epochs</span><span class="s3">, </span><span class="s0">learning_rate </span><span class="s3">= </span><span class="s5">5</span><span class="s3">, </span><span class="s5">101</span><span class="s3">, </span><span class="s5">.001 </span><span class="s1"># This is the original</span>
+<span class="s0">embedding_dims</span><span class="s3">, </span><span class="s0">num_epochs</span><span class="s3">, </span><span class="s0">learning_rate </span><span class="s3">= </span><span class="s5">8</span><span class="s3">, </span><span class="s5">201</span><span class="s3">, </span><span class="s5">.001 </span><span class="s1"># This is the new in Q4</span>
+<span class="s0">W1</span><span class="s3">, </span><span class="s0">W2 </span><span class="s3">= </span><span class="s0">w2v_train</span><span class="s3">(</span><span class="s0">embedding_dims</span><span class="s3">, </span><span class="s0">num_epochs</span><span class="s3">, </span><span class="s0">learning_rate</span><span class="s3">, </span><span class="s0">vocabulary_size</span><span class="s3">, </span><span class="s0">idx_pairs</span><span class="s3">, </span><span class="s2">False</span><span class="s3">)</span>
+<span class="s0">score_word_pairs</span><span class="s3">([(</span><span class="s4">&quot;she&quot;</span><span class="s3">, </span><span class="s4">&quot;king&quot;</span><span class="s3">),(</span><span class="s4">&quot;she&quot;</span><span class="s3">, </span><span class="s4">&quot;queen&quot;</span><span class="s3">)])</span>
+<span class="s0">score_word_pairs</span><span class="s3">([(</span><span class="s4">&quot;warsaw&quot;</span><span class="s3">, </span><span class="s4">&quot;poland&quot;</span><span class="s3">),(</span><span class="s4">&quot;warsaw&quot;</span><span class="s3">, </span><span class="s4">&quot;germany&quot;</span><span class="s3">)])</span>
+<span class="s0">score_word_pairs</span><span class="s3">([(</span><span class="s4">&quot;warsaw&quot;</span><span class="s3">, </span><span class="s4">&quot;capital&quot;</span><span class="s3">),(</span><span class="s4">&quot;poland&quot;</span><span class="s3">, </span><span class="s4">&quot;capital&quot;</span><span class="s3">)])</span><hr class="ls0"><span class="s0">#%% 
+embedding_dims</span><span class="s3">, </span><span class="s0">num_epochs </span><span class="s3">= </span><span class="s5">8</span><span class="s3">, </span><span class="s5">201 </span><span class="s1"># This is the new in Q4</span>
+<span class="s2">for </span><span class="s0">l </span><span class="s2">in </span><span class="s3">[</span><span class="s5">.1</span><span class="s3">, </span><span class="s5">0.01</span><span class="s3">, </span><span class="s5">0.001</span><span class="s3">, </span><span class="s5">0.0001</span><span class="s3">]:</span>
+    <span class="s0">print</span><span class="s3">(</span><span class="s4">f'Learning rate: </span><span class="s2">{</span><span class="s0">l</span><span class="s2">}</span><span class="s4">'</span><span class="s3">)</span>
+    <span class="s0">W1</span><span class="s3">, </span><span class="s0">W2 </span><span class="s3">= </span><span class="s0">w2v_train</span><span class="s3">(</span><span class="s0">embedding_dims</span><span class="s3">, </span><span class="s0">num_epochs</span><span class="s3">, </span><span class="s0">l</span><span class="s3">, </span><span class="s0">vocabulary_size</span><span class="s3">, </span><span class="s0">idx_pairs</span><span class="s3">, </span><span class="s2">False</span><span class="s3">)</span>
+    <span class="s0">score_word_pairs</span><span class="s3">([(</span><span class="s4">&quot;she&quot;</span><span class="s3">, </span><span class="s4">&quot;king&quot;</span><span class="s3">),(</span><span class="s4">&quot;she&quot;</span><span class="s3">, </span><span class="s4">&quot;queen&quot;</span><span class="s3">)])</span>
+    <span class="s0">score_word_pairs</span><span class="s3">([(</span><span class="s4">&quot;warsaw&quot;</span><span class="s3">, </span><span class="s4">&quot;poland&quot;</span><span class="s3">),(</span><span class="s4">&quot;warsaw&quot;</span><span class="s3">, </span><span class="s4">&quot;germany&quot;</span><span class="s3">)])</span>
+    <span class="s0">score_word_pairs</span><span class="s3">([(</span><span class="s4">&quot;warsaw&quot;</span><span class="s3">, </span><span class="s4">&quot;capital&quot;</span><span class="s3">),(</span><span class="s4">&quot;poland&quot;</span><span class="s3">, </span><span class="s4">&quot;capital&quot;</span><span class="s3">)])</span>
+    <span class="s0">print</span><span class="s3">(</span><span class="s4">'---'</span><span class="s3">)</span><hr class="ls0"><span class="s0">#%% md 
+So far, there are no parameters that perform adequately on she/queen, she/king. The other word pairs perform mostly as expected. Varrying the learning rate does not seem to have a significant impact on the results, but it does change the results slightly. The model is still not able to learn the relationship between 'she' and 'queen' properly, which is likely due to the small corpus size and the fact that there are only two sentences that contain 'she' and 'queen'.&lt;p&gt; <hr class="ls0">#%% md 
+&lt;b&gt;Question 5&lt;/b&gt;&lt;p&gt; 
+Add your own sentences to the corpus, retrain, and test the similarity relationships. 
+ 
+Does the model do what you would expect? <hr class="ls0">#%% 
+new_corpus </span><span class="s3">= [</span>
+    <span class="s4">'he is a king'</span><span class="s3">,</span>
+    <span class="s4">'she is a queen'</span><span class="s3">,</span>
+    <span class="s4">'he is a man'</span><span class="s3">,</span>
+    <span class="s4">'she is a woman'</span><span class="s3">,</span>
+    <span class="s4">'warsaw is poland capital'</span><span class="s3">,</span>
+    <span class="s4">'berlin is germany capital'</span><span class="s3">,</span>
+    <span class="s4">'paris is france capital'</span><span class="s3">,</span>
+    <span class="s4">'london is united kingdom capital'</span><span class="s3">,</span>
+    <span class="s4">'rome is italy capital'</span><span class="s3">,</span>
+    <span class="s4">'madrid is spain capital'</span><span class="s3">,</span>
+    <span class="s4">'ottawa is canada capital'</span><span class="s3">,</span>
+    <span class="s4">'tokyo is japan capital'</span><span class="s3">,</span>
+    <span class="s4">'beijing is china capital'</span><span class="s3">,</span>
+    <span class="s4">'washington is united states capital'</span><span class="s3">,</span>
+    <span class="s4">'canberra is australia capital'</span><span class="s3">,</span>
+    <span class="s4">'a boy is a male'</span><span class="s3">,</span>
+    <span class="s4">'a girl is a female'</span><span class="s3">,</span>
+    <span class="s4">'the prince is a male'</span><span class="s3">,</span>
+    <span class="s4">'the princess is a female'</span><span class="s3">,</span>
+    <span class="s4">'king is male'</span><span class="s3">,</span>
+    <span class="s4">'queen is female'</span><span class="s3">,</span>
+    <span class="s4">'man is male'</span><span class="s3">,</span>
+    <span class="s4">'woman is female'</span><span class="s3">,</span>
+    <span class="s4">'poland has warsaw as its capital'</span><span class="s3">,</span>
+    <span class="s4">'germany has berlin as its capital'</span><span class="s3">,</span>
+    <span class="s4">'france has paris as its capital'</span><span class="s3">,</span>
+    <span class="s4">'united kingdom has london as its capital'</span><span class="s3">,</span>
+    <span class="s4">'a king is a he'</span><span class="s3">,                   </span><span class="s1"># New: explicit king-he link</span>
+    <span class="s4">'a queen is a she'</span><span class="s3">,                 </span><span class="s1"># New: explicit queen-she link</span>
+    <span class="s4">'he is a monarch'</span><span class="s3">,                  </span><span class="s1"># New: more terms for king/queen</span>
+    <span class="s4">'she is a monarch'</span><span class="s3">,                 </span><span class="s1"># New: more terms for king/queen</span>
+    <span class="s4">'the king rules'</span><span class="s3">,                   </span><span class="s1"># New: action related to king</span>
+    <span class="s4">'the queen rules'</span><span class="s3">,                  </span><span class="s1"># New: action related to queen</span>
+    <span class="s4">'he wears a crown'</span><span class="s3">,                 </span><span class="s1"># New: attributes of king/queen</span>
+    <span class="s4">'she wears a crown'</span><span class="s3">,                </span><span class="s1"># New: attributes of king/queen</span>
+    <span class="s4">'the king is male'</span><span class="s3">,                 </span><span class="s1"># New: reinforces gender</span>
+    <span class="s4">'the queen is female'</span><span class="s3">,              </span><span class="s1"># New: reinforces gender</span>
+    <span class="s4">'he is royalty'</span><span class="s3">,                    </span><span class="s1"># New: broader term for king/prince</span>
+    <span class="s4">'she is royalty'</span><span class="s3">,</span>
+    <span class="s4">'she queen'</span><span class="s3">, </span><span class="s4">'she queen'</span><span class="s3">, </span><span class="s4">'she queen'</span><span class="s3">, </span><span class="s4">'she queen'</span><span class="s3">, </span><span class="s4">'she queen'</span><span class="s3">, </span><span class="s4">'she queen'</span><span class="s3">, </span><span class="s4">'she queen'</span><span class="s3">, </span><span class="s4">'she queen'</span><span class="s3">, </span><span class="s4">'she queen'</span><span class="s3">, </span><span class="s4">'she queen'</span><span class="s3">, </span><span class="s4">'she queen'</span><span class="s3">, </span><span class="s4">'she queen'</span><span class="s3">, </span><span class="s4">'she queen'</span><span class="s3">, </span><span class="s4">'she queen'</span><span class="s3">, </span><span class="s4">'she queen'</span><span class="s3">, </span><span class="s4">'she queen'</span><span class="s3">, </span><span class="s4">'she queen'</span><span class="s3">, </span><span class="s4">'she queen'</span><span class="s3">, </span><span class="s4">'she queen'</span><span class="s3">, </span><span class="s4">'she queen'</span><span class="s3">, </span><span class="s4">'she queen'</span><span class="s3">, </span><span class="s4">'she queen'</span><span class="s3">, </span><span class="s4">'she queen'</span><span class="s3">, </span><span class="s4">'she queen'</span><span class="s3">, </span><span class="s4">'she queen'</span><span class="s3">,</span>
+    <span class="s4">'King Arthur ruled the mighty kingdom of Camelot.'</span><span class="s3">,</span>
+    <span class="s4">'Queen Guinevere was beloved by all the people.'</span><span class="s3">,</span>
+    <span class="s4">'The king and queen sat upon their grand thrones.'</span><span class="s3">,</span>
+    <span class="s4">'He wore a crown of gold and jewels.'</span><span class="s3">,</span>
+    <span class="s4">'She adorned herself with pearls and fine silks.'</span><span class="s3">,</span>
+    <span class="s4">'The royal court gathered in the great hall.'</span><span class="s3">,</span>
+    <span class="s4">'Knights pledged their loyalty to the king.'</span><span class="s3">,</span>
+    <span class="s4">'The queen often visited the village market.'</span><span class="s3">,</span>
+    <span class="s4">'Their kingdom flourished under wise leadership.'</span><span class="s3">,</span>
+    <span class="s4">'He commanded his army with courage and strength.'</span><span class="s3">,</span>
+    <span class="s4">'She offered counsel and grace to her people.'</span><span class="s3">,</span>
+    <span class="s4">'The castle stood majestically on the hill.'</span><span class="s3">,</span>
+    <span class="s4">'They faced challenges to their reign.'</span><span class="s3">,</span>
+    <span class="s4">'A powerful sorcerer threatened the land.'</span><span class="s3">,</span>
+    <span class="s4">'The queen comforted her husband during difficult times.'</span><span class="s3">,</span>
+    <span class="s4">'He consulted his most trusted advisors.'</span><span class="s3">,</span>
+    <span class="s4">'She oversaw the royal treasury and provisions.'</span><span class="s3">,</span>
+    <span class="s4">'The kingdom celebrated their anniversary with a feast.'</span><span class="s3">,</span>
+    <span class="s4">'The king rode his noble steed into battle.'</span><span class="s3">,</span>
+    <span class="s4">'The queen prayed for his safe return.'</span><span class="s3">,</span>
+    <span class="s4">'He made a decree that changed the law.'</span><span class="s3">,</span>
+    <span class="s4">'She guided the young prince and princess.'</span><span class="s3">,</span>
+    <span class="s4">'Their subjects adored the benevolent monarchs.'</span><span class="s3">,</span>
+    <span class="s4">'The royal guards stood watch day and night.'</span><span class="s3">,</span>
+    <span class="s4">'He discussed strategy with his generals.'</span><span class="s3">,</span>
+    <span class="s4">'She hosted foreign dignitaries in the palace.'</span><span class="s3">,</span>
+    <span class="s4">'The royal couple often walked through the castle gardens.'</span><span class="s3">,</span>
+    <span class="s4">'The kingdom stretched far and wide.'</span><span class="s3">,</span>
+    <span class="s4">'He prepared for the coming war.'</span><span class="s3">,</span>
+    <span class="s4">'She inspired hope in the hearts of the villagers, the queen she did.'</span><span class="s3">,</span>
+    <span class="s4">'The crown symbolized their authority.'</span><span class="s3">,</span>
+    <span class="s4">'Their love story was legendary throughout the land.'</span><span class="s3">,</span>
+    <span class="s4">'He championed justice for all.'</span><span class="s3">,</span>
+    <span class="s4">'She possessed remarkable wisdom and kindness.'</span><span class="s3">,</span>
+    <span class="s4">'The people rejoiced at their presence.'</span><span class="s3">,</span>
+    <span class="s4">'The king often contemplated the future of his realm.'</span><span class="s3">,</span>
+    <span class="s4">'The queen,she engaged in charitable endeavors.'</span><span class="s3">,</span>
+    <span class="s4">'He received petitions from his loyal subjects.'</span><span class="s3">,</span>
+    <span class="s4">'She ensured the welfare of the children.'</span><span class="s3">,</span>
+    <span class="s4">'The royal decree was read aloud in the square.'</span><span class="s3">,</span>
+<span class="s3">]</span>
+<span class="s0">new_tokenized_corpus </span><span class="s3">= </span><span class="s0">tokenize_corpus</span><span class="s3">(</span><span class="s0">new_corpus</span><span class="s3">)</span>
+<span class="s0">new_word2idx</span><span class="s3">, </span><span class="s0">new_idx2word</span><span class="s3">, </span><span class="s0">new_vocabulary_size </span><span class="s3">= </span><span class="s0">gen_index</span><span class="s3">(</span><span class="s0">new_tokenized_corpus</span><span class="s3">)</span>
+<span class="s0">new_idx_pairs </span><span class="s3">= </span><span class="s0">gen_index_pairs</span><span class="s3">(</span><span class="s0">new_tokenized_corpus</span><span class="s3">, </span><span class="s0">new_word2idx</span><span class="s3">, </span><span class="s0">window_size</span><span class="s3">=</span><span class="s5">3</span><span class="s3">)</span>
+<span class="s0">new_W1</span><span class="s3">, </span><span class="s0">new_W2 </span><span class="s3">= </span><span class="s0">w2v_train</span><span class="s3">(</span><span class="s0">embedding_dims</span><span class="s3">, </span><span class="s0">num_epochs</span><span class="s3">, </span><span class="s0">learning_rate</span><span class="s3">, </span><span class="s0">new_vocabulary_size</span><span class="s3">, </span><span class="s0">new_idx_pairs</span><span class="s3">, </span><span class="s2">False</span><span class="s3">)</span><hr class="ls0"><span class="s0">#%% 
+score_word_pairs</span><span class="s3">([(</span><span class="s4">&quot;she&quot;</span><span class="s3">, </span><span class="s4">&quot;king&quot;</span><span class="s3">),(</span><span class="s4">&quot;she&quot;</span><span class="s3">, </span><span class="s4">&quot;queen&quot;</span><span class="s3">)], </span><span class="s0">new_W2</span><span class="s3">, </span><span class="s0">new_word2idx</span><span class="s3">)</span>
+<span class="s0">score_word_pairs</span><span class="s3">([(</span><span class="s4">&quot;her&quot;</span><span class="s3">, </span><span class="s4">&quot;king&quot;</span><span class="s3">),(</span><span class="s4">&quot;her&quot;</span><span class="s3">, </span><span class="s4">&quot;queen&quot;</span><span class="s3">)], </span><span class="s0">new_W2</span><span class="s3">, </span><span class="s0">new_word2idx</span><span class="s3">)</span><hr class="ls0"><span class="s0">#%% md 
+I tried numerous different corpus, window_size, learning_rate, but simply could not get 'she' 'queen' to score higher than 'king'. When I finally switched to 'her', it gave an appropriate result.&lt;p&gt; 
+One thing that I noticed before I had the randon seed set properly, is that the results varried wildly based on the random seed. This comes back to the corpus being too small, and the model not being able to learn the relationships properly.&lt;p&gt;</span></pre>
+</body>
+</html>

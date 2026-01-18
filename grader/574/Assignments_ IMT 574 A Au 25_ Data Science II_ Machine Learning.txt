@@ -1,0 +1,648 @@
+10/12/25, 12:21 PM
+
+Assignments: IMT 574 A Au 25: Data Science II: Machine Learning
+
+Search...
+
+ Group
+
+
+
+Assignment (https://canvas.uw.edu/courses/1830729/assignments/new)
+
+
+
+ 
+
+Class Participation
+
+15% of Total
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Course Participation
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603959)
+
+Available until Nov 28 at 11:59pm | Due Nov 28 at 11:59pm | 4 pts
+
+
+
+
+
+
+
+
+
+ML Trending Topics Presentation (Extra Credit)
+
+(https://canvas.uw.edu/courses/1830729/assignments/10646967)
+
+Available until Nov 28 at 11:59pm | Due Nov 28 at 11:59pm
+
+ 
+
+Graded Assignments
+
+1.6 Assignment 1: Introduction to Machine Learning (Graded)
+
+
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603947)
+
+35% of Total
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+M1: Introduction to Machine Learning Module | Closed | Due Sep 28 at 11:59pm | 10 pts
+
+2.10 Assignment 2: Linear Regression and Gradient Descent (Graded)
+
+
+
+
+
+
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603950)
+
+M2: Linear Regression and Gradient Descent Module | Available Multiple Dates (https://canvas.uw.edu/courses/1830729/assignments/10603950) | Due Multiple Dates (https://canvas.uw.edu/courses/1830729/assignments/10603950) | 10 pts
+
+3.8 Assignment 3: Logistic Regression and kNN (Graded)
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603951)
+
+Module 3: Logistic Regression and K-Nearest Neighbor (KNN) Module | Available until Oct 19 at 11:59pm | Due Oct 12 at 11:59pm | 10 pts
+
+4.8 Assignment 4: Decision Trees and Random Forest (Graded)
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603952)
+
+Module 4: Decision Trees and Random Forest Module | Available until Oct 26 at 11:59pm | Due Oct 19 at 11:59pm | 10 pts
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+https://canvas.uw.edu/courses/1830729/assignments
+
+1/5
+
+10/12/25, 12:21 PM
+
+Assignments: IMT 574 A Au 25: Data Science II: Machine Learning
+
+
+
+
+
+5.6 Assignment 5: Clustering (Graded)
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603953)
+
+M5: Clustering Module | Not available until Oct 19 at 12am | Due Oct 26 at 11:59pm | 10 pts
+
+
+
+
+
+
+
+
+
+
+
+6.6 Assignment 6: Naïve Bayes (Graded)
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603955)
+
+M6: Naïve Bayes Module | Not available until Oct 26 at 12am | Due Nov 2 at 11:59pm | 10 pts
+
+
+
+
+
+
+
+7.7 Assignment 7: Expectation-Maximization (EM) (Graded)
+
+
+
+
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603956)
+
+M7: Expectation-Maximization (EM) Module | Not available until Nov 2 at 12am | Due Nov 9 at 11:59pm | 10 pts
+
+
+
+
+
+
+
+8.9 Assignment 8: Support Vector Machine (SVM) (Graded)
+
+
+
+
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603957)
+
+M8: Support Vector Machine (SVM) Module | Not available until Nov 9 at 12am | Due Nov 16 at 11:59pm | 10 pts
+
+
+
+
+
+
+
+9.6 Assignment 9: Neural Networks (Graded)
+
+
+
+
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603958)
+
+M9: Neural Networks Module | Not available until Nov 16 at 12am | Due Nov 23 at 11:59pm | 10 pts
+
+
+
+
+
+
+
+
+
+
+
+10.6 Assignment 10: Explainable artificial intelligence (XAI): Concepts, taxonomies, opportunities, and challenges toward responsible AI. (Graded) (Refresh)
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603948)
+
+Module 10: Responsible AI, Project Presentations and Course Conclusion Module | Not available until Nov 23 at 12am | Due Nov 30 at 11:59pm | 10 pts
+
+
+
+
+
+
+
+ 
+
+Mid-term
+
+20% of Total
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5.8 Midterm Assignment: Practice (Graded)
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603954)
+
+M5: Clustering Module | Not available until Oct 19 at 7am | Due Oct 29 at 11:59pm | 70 pts
+
+5.9 Midterm Quiz: Theory (Graded)
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603946)
+
+M5: Clustering Module | Not available until Oct 26 at 12am | Due Oct 26 at 11:59pm | 30 pts
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+https://canvas.uw.edu/courses/1830729/assignments
+
+2/5
+
+10/12/25, 12:21 PM
+
+Assignments: IMT 574 A Au 25: Data Science II: Machine Learning
+
+ 
+
+Final Group Project and Presentation
+
+30% of Total
+
+
+
+
+
+10.7 Group Project: Report and Presentation (Graded)
+
+
+
+
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603949)
+
+Module 10: Responsible AI, Project Presentations and Course Conclusion Module | Not available until Nov 23 at 12am | Due Nov 30 at 11:59pm | 100 pts
+
+
+
+
+
+
+
+ 
+
+Ungraded Labs (Practice)
+
+Lab 2.10.1: Linear Equations—Altitude
+
+
+
+0% of Total
+
+
+
+
+
+
+
+
+
+
+
+
+
+Lab 3.8.3: Classifiers—Testing Accuracy—Accident Survivors Dataset
+
+
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603960)
+
+Due Oct 5 at 11:59pm
+
+Lab 2.10.2: Regression Analysis—Container Crane Controller
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603961)
+
+Due Oct 5 at 11:59pm
+
+Lab 2.10.3: Linear Regression: Ratings
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603962)
+
+Due Oct 5 at 11:59pm
+
+Lab 2.10.4: Analysis—All Greens Franchise
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603963)
+
+Due Oct 5 at 11:59pm
+
+Lab 3.8.1: Classifiers—hsbdemo Dataset
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603964)
+
+Due Oct 12 at 11:59pm
+
+Lab 3.8.2: Classifiers—Weather Dataset
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603965)
+
+Due Oct 12 at 11:59pm
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603966)
+
+Due Oct 12 at 11:59pm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+https://canvas.uw.edu/courses/1830729/assignments
+
+3/5
+
+10/12/25, 12:21 PM
+
+Assignments: IMT 574 A Au 25: Data Science II: Machine Learning
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Lab 4.10.1: Decision Tree—Tipping
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603967)
+
+Due Oct 19 at 11:59pm
+
+Lab 4.10.2: Building a Decision Tree-based Classifier—Contact
+
+ Lenses (https://canvas.uw.edu/courses/1830729/assignments/10603968)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Due Oct 19 at 11:59pm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Lab 4.10.3: The Decision Tree Algorithm—Balloons
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603969)
+
+Due Oct 19 at 11:59pm
+
+Lab 4.10.4: Compare and Contrast Algorithms
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603970)
+
+Due Oct 19 at 11:59pm
+
+Lab 5.7.1: Users' Domain Knowledge
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603971)
+
+Due Oct 26 at 11:59pm
+
+Lab 6.6.1: Tipping
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603972)
+
+Due Nov 2 at 11:59pm
+
+Lab 6.6.2: Contact Lenses
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603973)
+
+Due Nov 2 at 11:59pm
+
+Lab 7.8.1: Explain The Attributes—Slump Dataset
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603974)
+
+Due Nov 9 at 11:59pm
+
+Lab 7.8.2: Clustering
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603975)
+
+Due Nov 9 at 11:59pm
+
+Lab 8.10.1: Predictions Using SVM—AnthroKids Dataset
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603976)
+
+Due Nov 16 at 11:59pm
+
+Lab 8.10.2: Create a Classifier
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603977)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+https://canvas.uw.edu/courses/1830729/assignments
+
+4/5
+
+10/12/25, 12:21 PM
+
+Assignments: IMT 574 A Au 25: Data Science II: Machine Learning
+
+Due Nov 16 at 11:59pm
+
+
+
+
+
+Lab 9.7.1: Build a Classifier Using Neural Networks
+
+(https://canvas.uw.edu/courses/1830729/assignments/10603978)
+
+Due Nov 23 at 11:59pm
+
+
+
+
+
+
+
+ 
+
+https://canvas.uw.edu/courses/1830729/assignments
+
+5/5
+

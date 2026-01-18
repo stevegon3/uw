@@ -1,18 +1,233 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e4bf2b6c-f31a-43c2-aae2-9e18d8906427" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/IMT511/a2_quiz_game.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMT511/catalog.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMT511/cli.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMT543/4.15 SGonzales.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMT543/discussions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMT543/instpubs-insert-pg.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMT543/pubs-validate.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMT575/8_6-Fairness.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMT575/final_proj/feature-matrix.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/grader/573/10.1 Final Exam/kashb.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/grader/573/IMT_573_3.10_ps3_working_with_data_SGonzales.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/grader/573/IMT_573_4.12_ps4_working_with_data_2_SGonzales.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/grader/573/IMT_573_5.15_Lab5_data_analysis_SGonzales.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/grader/574/Lab 2.10.2 Nicole H.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/grader/574/Lab-4_10_3-The_Decision_Tree_Algorithm-Balloons-SGonzales.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/grader/574/gd_khoi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/grader/574/gd_prof.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/grader/574/module2.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/grader/Grader_Scraper.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../imt575_final/Final Project v5.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uw.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uw.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT573/IMT_573_6.13_Lab6_conditional_probability_SGonzales.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT573/IMT_573_6.14_ps6_statistical_learning_SGonzales.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT573/IMT_573_final_exam_WIN_2025-SGonzales (1).py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT573/IMT_573_final_exam_WIN_2025-SGonzales (2).py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT573/IMT_573_final_exam_WIN_2025-SGonzales (3).py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT573/IMT_573_final_exam_WIN_2025-SGonzales (4).py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT573/IMT_573_final_exam_WIN_2025-SGonzales - Copy (2).ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT573/IMT_573_final_exam_WIN_2025-SGonzales - Copy (3).ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT573/IMT_573_final_exam_WIN_2025-SGonzales - Copy (4).ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT573/IMT_573_final_exam_WIN_2025-SGonzales - Copy (5).ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT573/IMT_573_final_exam_WIN_2025-SGonzales - Copy (6).ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT573/IMT_573_final_exam_WIN_2025-SGonzales - Copy.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT574/Lab 2-10-1 Linear Equations - Attitude - SGonzales.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/IMT574/Lab 2-10-1 Linear Equations - Attitude - SGonzales.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT574/Lab 2_10_3-Linear Regression-Ratings-SGonzales.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/IMT574/Lab 2_10_3-Linear Regression-Ratings-SGonzales.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT574/Lab-3_8_2-Classifiers-Weather-SGonzales.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/IMT574/Lab-3_8_2-Classifiers-Weather-SGonzales.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT575/575 Misc.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/IMT575/575 Misc.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT575/final_proj/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/IMT575/final_proj/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT575/final_proj/data_monthly_filtered.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/IMT575/final_proj/data_monthly_filtered.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT575/final_proj/export_daily.py" beforeDir="false" afterPath="$PROJECT_DIR$/IMT575/final_proj/export_daily.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_/Users/stevegon/SynologyDrive/code/uw" value="2zYK3n7bLU7vSPZEd7VTEuNozUf" />
+    </persistenceIdMap>
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="printScope" value="1" />
+    <option name="OPEN_IN_BROWSER" value="true" />
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/exportToHTML" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jupyter Notebook" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2zYK3n7bLU7vSPZEd7VTEuNozUf" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
+    &quot;Database Script.2.17 SGonzales.sql.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;Markdown-Groovy.md.groovy&quot;,
+    &quot;database.data.extractors.current.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feat/imt575&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/stevegon/SynologyDrive/code/uw/grader/573&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ],
+    &quot;RunConfigurationTargetLRU&quot;: [
+      &quot;8e4e1411-2b0e-4d35-9e72-5e6b7b6a407c/database/\&quot;uw\&quot;/schema/\&quot;imt543\&quot;&quot;
+    ]
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/grader/573" />
+      <recent name="$PROJECT_DIR$/grader/574" />
+      <recent name="$PROJECT_DIR$/../imt575_final" />
+      <recent name="$PROJECT_DIR$/IMT575" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/grader/574" />
+      <recent name="$PROJECT_DIR$/IMT575/final_proj" />
+      <recent name="$PROJECT_DIR$/diagrams" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-PY-252.28539.27" />
+        <option value="bundled-python-sdk-07523f343e4f-968fe969f28a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.28539.27" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+      <changelist id="e4bf2b6c-f31a-43c2-aae2-9e18d8906427" name="Changes" comment="" />
       <created>1749268847276</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1749268847276</updated>
       <workItem from="1749268848327" duration="431000" />
+      <workItem from="1751902370608" duration="1957000" />
+      <workItem from="1751911888478" duration="28000" />
+      <workItem from="1751911936148" duration="15673000" />
+      <workItem from="1752254752405" duration="857000" />
+      <workItem from="1752604112144" duration="1627000" />
+      <workItem from="1753131474610" duration="7126000" />
+      <workItem from="1753470928953" duration="42137000" />
+      <workItem from="1753645825750" duration="2338000" />
+      <workItem from="1753651932081" duration="227000" />
+      <workItem from="1753652167532" duration="1252000" />
+      <workItem from="1753653492506" duration="2397000" />
+      <workItem from="1753669703754" duration="1302000" />
+      <workItem from="1753675345586" duration="83000" />
+      <workItem from="1753675435832" duration="83000" />
+      <workItem from="1753675536282" duration="42000" />
+      <workItem from="1753675595638" duration="349000" />
+      <workItem from="1753675974599" duration="119000" />
+      <workItem from="1753676102801" duration="1515000" />
+      <workItem from="1753749516191" duration="3434000" />
+      <workItem from="1754014686872" duration="14648000" />
+      <workItem from="1754150298436" duration="2717000" />
+      <workItem from="1754247463544" duration="39511000" />
+      <workItem from="1754770025875" duration="676000" />
+      <workItem from="1754844956702" duration="23000" />
+      <workItem from="1754845213825" duration="2448000" />
+      <workItem from="1755110222737" duration="40000" />
+      <workItem from="1755110310787" duration="18000" />
+      <workItem from="1755110348654" duration="49119000" />
+      <workItem from="1755373589810" duration="47000" />
+      <workItem from="1755373648780" duration="26680000" />
+      <workItem from="1755622795490" duration="33745000" />
+      <workItem from="1755751667053" duration="24675000" />
+      <workItem from="1756074430888" duration="7929000" />
+      <workItem from="1756266002246" duration="1578000" />
+      <workItem from="1756507334634" duration="258000" />
+      <workItem from="1759089449946" duration="11318000" />
+      <workItem from="1759452183862" duration="22033000" />
+      <workItem from="1759685884362" duration="2000" />
+      <workItem from="1759688783172" duration="62000" />
+      <workItem from="1759688865605" duration="2020000" />
+      <workItem from="1759981105180" duration="2875000" />
+      <workItem from="1760041477283" duration="14580000" />
+      <workItem from="1760108427064" duration="21220000" />
+      <workItem from="1760413168632" duration="25640000" />
+      <workItem from="1760927158117" duration="30819000" />
+      <workItem from="1761515865731" duration="1825000" />
+      <workItem from="1761531972552" duration="20075000" />
+      <workItem from="1761845506268" duration="7357000" />
+      <workItem from="1761951955006" duration="7000" />
+      <workItem from="1762119350722" duration="17189000" />
+      <workItem from="1762325457524" duration="598000" />
+      <workItem from="1762371832200" duration="12535000" />
+      <workItem from="1762919476622" duration="48000" />
+      <workItem from="1762919538174" duration="13849000" />
+      <workItem from="1763046882687" duration="2404000" />
+      <workItem from="1763087718875" duration="4629000" />
+      <workItem from="1763275542605" duration="13704000" />
+      <workItem from="1763354802771" duration="598000" />
+      <workItem from="1763412725825" duration="596000" />
+      <workItem from="1763565281596" duration="8927000" />
+      <workItem from="1763938356298" duration="16902000" />
+      <workItem from="1764261416905" duration="61939000" />
+      <workItem from="1764817975687" duration="21000" />
+      <workItem from="1764818008260" duration="5132000" />
+      <workItem from="1765121197786" duration="7146000" />
+      <workItem from="1765130027662" duration="2248000" />
+      <workItem from="1765381822669" duration="6000" />
+      <workItem from="1767836378356" duration="11277000" />
+      <workItem from="1768014487960" duration="10616000" />
+      <workItem from="1768092282526" duration="7164000" />
+      <workItem from="1768355666880" duration="1958000" />
+      <workItem from="1768451200673" duration="11434000" />
+      <workItem from="1768691702308" duration="56000" />
+      <workItem from="1768691786352" duration="10830000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
   </component>
 </project>
