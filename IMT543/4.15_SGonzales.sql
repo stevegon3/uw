@@ -1,10 +1,12 @@
 --1. Table Creation:
 --Write a SQL query to create a table named Books with the following fields:
+SELECT table_name FROM information_schema.tables WHERE table_schema = 'imt543' ORDER BY table_name;
 CREATE TABLE IF NOT EXISTS Books (
     book_id INT Primary Key,
     title  VARCHAR(100),
     publisher_id INT
 );
+SELECT table_name FROM information_schema.tables WHERE table_schema = 'imt543' ORDER BY table_name;
 
 --2. Insert Data:
 --Write a query to insert one records into the Books table with appropriate values for book_id, title, and publisher_id.
@@ -35,8 +37,13 @@ SELECT *
 FROM employee e RIGHT JOIN publishers p ON e.pub_id=p.pub_id;
 
 --9. Write an ALTER TABLE query to add a new column named author (VARCHAR(100)) to the Books table.
+SELECT column_name,data_type
+FROM information_schema.columns WHERE table_schema iLIKE 'imt543' AND table_name ilike 'Books' ORDER BY table_name, column_name;
 ALTER TABLE Books ADD COLUMN author varchar(100);
+SELECT column_name,data_type
+FROM information_schema.columns WHERE table_schema iLIKE 'imt543' AND table_name ilike 'Books' ORDER BY table_name, column_name;
 
 --10. Write a SQL query to drop the Books table from the database.
 DROP TABLE Books;
+SELECT table_name FROM information_schema.tables WHERE table_schema = 'imt543' ORDER BY table_name;
 

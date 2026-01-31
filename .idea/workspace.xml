@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4bf2b6c-f31a-43c2-aae2-9e18d8906427" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/IMT511/linked_list.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../imt575_final/Final Project v5.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT543/4.15 SGonzales.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uw/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/uw/config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uw/db_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/uw/db_helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uw/export_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/uw/export_script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uw/postgres.py" beforeDir="false" afterPath="$PROJECT_DIR$/uw/postgres.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uw/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/uw/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +199,7 @@
       <workItem from="1769467017842" duration="598000" />
       <workItem from="1769467738138" duration="37000" />
       <workItem from="1769468232679" duration="12152000" />
-      <workItem from="1769730556951" duration="8259000" />
+      <workItem from="1769730556951" duration="10068000" />
     </task>
     <servers />
   </component>
