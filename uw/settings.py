@@ -3,7 +3,7 @@ import configparser
 
 class Sett:
     def __init__(self, env='dev'):
-        with open('config.yaml', 'r') as f:
+        with open('uw/config.yaml', 'r') as f:
             self.config = yaml.safe_load(f) or {}
         self.log = logging.getLogger(__name__)
         self.log.setLevel(logging.DEBUG)
@@ -40,8 +40,7 @@ class Sett:
             self.PostgresPort = config_ini['pg']['PostgresPort']
             self.PostgresUser = config_ini['pg']['PostgresUser']
             self.PostgresPassword = config_ini['pg']['PostgresPassword']
-            self.PyInvDBPassword = config_ini['pg']['PyInvDBPassword']
-        self.PostgresSchema = 'imt543'
+        self.PostgresSchema = self.config['postgres_schema']
         self.tz_east = self.config['tz_east']
         self.tz_pac = self.config['tz_pac']
         self.debug = self.config['debug']

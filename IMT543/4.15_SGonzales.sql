@@ -1,6 +1,6 @@
 --1. Table Creation:
 --Write a SQL query to create a table named Books with the following fields:
-CREATE TABLE Books (
+CREATE TABLE IF NOT EXISTS Books (
     book_id INT Primary Key,
     title  VARCHAR(100),
     publisher_id INT
@@ -18,9 +18,9 @@ UPDATE Books SET title = 'The Grapes of Wrath' WHERE book_id=1;
 DELETE FROM Books WHERE book_id=1;
 
 --5. Count the number of distinct authors from the author table.
-SELECT count(DISTINCT au_id) FROM authors;
+SELECT count(DISTINCT au_id) ct_distinct FROM authors;
 --Should be the same as count(*)
-SELECT count(*) FROM authors;
+SELECT count(*) ct FROM authors;
 
 --6. Write a query using an inner join with the employee and publishers table. You will then extract the data from both tables.
 SELECT *

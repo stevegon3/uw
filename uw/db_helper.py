@@ -2,7 +2,7 @@
 import decimal, math, datetime
 import pandas as pd
 from typing import Any
-from settings import sett
+from uw.settings import sett
 
 def is_datetime(my_string, debug=False):
     # List of common date time formats to check against
@@ -117,8 +117,11 @@ def list_to_df_orig(my_list, first_row_is_header=True):
 def list_to_df(my_list, first_row_is_header=True):
     """Convert a list to a DataFrame with proper type handling."""
     pd.set_option('future.no_silent_downcasting', True)
+    if not isinstance(my_list, list):
+        # It's probably a non returning command like CREATE TABLE
+        return pd.DataFrame({'non_select_result': my_list})
     if not my_list or my_list == [[]]:
-        return pd.DataFrame([[None]], columns=[''])
+        return pd.DataFrame()
     try:
         if first_row_is_header:
             column_names = my_list[0]
@@ -126,8 +129,12 @@ def list_to_df(my_list, first_row_is_header=True):
         else:
             column_names = [f'col_{i}' for i in range(len(my_list[0]))]
             data = my_list
+        if not data:
+            return pd.DataFrame(columns=column_names) if column_names else pd.DataFrame()
         # First pass: create DataFrame with object dtype to preserve values
         df = pd.DataFrame(data, columns=column_names, dtype=object)
+        if df.empty and column_names:
+            return pd.DataFrame(columns=column_names)
         column_types = [get_type(x, True) for x in data[0]]
         column_dict = dict(zip(column_names, column_types))
         # Second pass: convert types
@@ -163,10 +170,9 @@ def list_to_df(my_list, first_row_is_header=True):
             except Exception as e:
                 pass
         return df
-
     except Exception as e:
-        sett.log.error(f"Error in list_to_df: {str(e)} returning empty DataFrame.")
-        return pd.DataFrame(columns=column_names if first_row_is_header else [])
+        sett.log.error(f"Error in list_to_df: {str(e)}.. Returning empty DataFrame.")
+        return pd.DataFrame()
 
 def assert_date_string(date_string):
     try:

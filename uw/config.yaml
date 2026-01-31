@@ -1,5 +1,6 @@
 debug: False
 ini_file: uw.ini
+postgres_schema: imt543
 log_fmt: "%(asctime)s|%(levelname)s|%(module)s:%(lineno)d|%(message)s"
 log_date_fmt: "%y%m%dT%H:%M:%S"
 tz_east: "America/New_York"

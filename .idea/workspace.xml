@@ -5,48 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4bf2b6c-f31a-43c2-aae2-9e18d8906427" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/IMT511/a2_quiz_game.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IMT511/catalog.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IMT511/cli.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IMT543/4.15 SGonzales.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IMT543/discussions.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IMT543/instpubs-insert-pg.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IMT543/pubs-validate.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IMT575/8_6-Fairness.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IMT575/final_proj/feature-matrix.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/grader/573/10.1 Final Exam/kashb.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/grader/573/IMT_573_3.10_ps3_working_with_data_SGonzales.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/grader/573/IMT_573_4.12_ps4_working_with_data_2_SGonzales.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/grader/573/IMT_573_5.15_Lab5_data_analysis_SGonzales.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/grader/574/Lab 2.10.2 Nicole H.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/grader/574/Lab-4_10_3-The_Decision_Tree_Algorithm-Balloons-SGonzales.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/grader/574/gd_khoi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/grader/574/gd_prof.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/grader/574/module2.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/grader/Grader_Scraper.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMT511/linked_list.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../imt575_final/Final Project v5.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uw.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uw.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT573/IMT_573_6.13_Lab6_conditional_probability_SGonzales.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT573/IMT_573_6.14_ps6_statistical_learning_SGonzales.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT573/IMT_573_final_exam_WIN_2025-SGonzales (1).py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT573/IMT_573_final_exam_WIN_2025-SGonzales (2).py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT573/IMT_573_final_exam_WIN_2025-SGonzales (3).py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT573/IMT_573_final_exam_WIN_2025-SGonzales (4).py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT573/IMT_573_final_exam_WIN_2025-SGonzales - Copy (2).ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT573/IMT_573_final_exam_WIN_2025-SGonzales - Copy (3).ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT573/IMT_573_final_exam_WIN_2025-SGonzales - Copy (4).ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT573/IMT_573_final_exam_WIN_2025-SGonzales - Copy (5).ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT573/IMT_573_final_exam_WIN_2025-SGonzales - Copy (6).ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT573/IMT_573_final_exam_WIN_2025-SGonzales - Copy.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT574/Lab 2-10-1 Linear Equations - Attitude - SGonzales.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/IMT574/Lab 2-10-1 Linear Equations - Attitude - SGonzales.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT574/Lab 2_10_3-Linear Regression-Ratings-SGonzales.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/IMT574/Lab 2_10_3-Linear Regression-Ratings-SGonzales.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT574/Lab-3_8_2-Classifiers-Weather-SGonzales.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/IMT574/Lab-3_8_2-Classifiers-Weather-SGonzales.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT575/575 Misc.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/IMT575/575 Misc.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT575/final_proj/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/IMT575/final_proj/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT575/final_proj/data_monthly_filtered.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/IMT575/final_proj/data_monthly_filtered.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT575/final_proj/export_daily.py" beforeDir="false" afterPath="$PROJECT_DIR$/IMT575/final_proj/export_daily.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT543/4.15 SGonzales.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uw/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/uw/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uw/db_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/uw/db_helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uw/export_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/uw/export_script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uw/postgres.py" beforeDir="false" afterPath="$PROJECT_DIR$/uw/postgres.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uw/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/uw/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +25,10 @@
       <entry key="_/Users/stevegon/SynologyDrive/code/uw" value="2zYK3n7bLU7vSPZEd7VTEuNozUf" />
     </persistenceIdMap>
   </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="87903" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
+  </component>
   <component name="ExportToHTMLSettings">
     <option name="printScope" value="1" />
     <option name="OPEN_IN_BROWSER" value="true" />
@@ -66,13 +37,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jupyter Notebook" />
         <option value="Python Script" />
+        <option value="Jupyter Notebook" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -89,12 +64,15 @@
   &quot;keyToString&quot;: {
     &quot;Database Script.2.17 SGonzales.sql.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
     &quot;database.data.extractors.current.export.id&quot;: &quot;Markdown-Groovy.md.groovy&quot;,
     &quot;database.data.extractors.current.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feat/imt575&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feat/sql-export&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/stevegon/SynologyDrive/code/uw/grader/573&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -113,6 +91,13 @@
     ]
   }
 }</component>
+  <component name="RecapSpentCounter">
+    <option name="endsOfQuotaMs" value="1771509651202" />
+    <option name="spentUsd" value="0.049419045" />
+  </component>
+  <component name="RecapUselessUpdatesCounter">
+    <option name="suspendCountdown" value="0" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/grader/573" />
@@ -121,6 +106,7 @@
       <recent name="$PROJECT_DIR$/IMT575" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/uw" />
       <recent name="$PROJECT_DIR$/grader/574" />
       <recent name="$PROJECT_DIR$/IMT575/final_proj" />
       <recent name="$PROJECT_DIR$/diagrams" />
@@ -129,8 +115,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-PY-252.28539.27" />
-        <option value="bundled-python-sdk-07523f343e4f-968fe969f28a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.28539.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.29346.308" />
+        <option value="bundled-python-sdk-ca5e2b39c7df-6e1f45a539f7-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.29346.308" />
       </set>
     </attachedChunks>
   </component>
@@ -215,7 +201,13 @@
       <workItem from="1768355666880" duration="1958000" />
       <workItem from="1768451200673" duration="11434000" />
       <workItem from="1768691702308" duration="56000" />
-      <workItem from="1768691786352" duration="10830000" />
+      <workItem from="1768691786352" duration="26586000" />
+      <workItem from="1769133707362" duration="98000" />
+      <workItem from="1769133924398" duration="598000" />
+      <workItem from="1769467017842" duration="598000" />
+      <workItem from="1769467738138" duration="37000" />
+      <workItem from="1769468232679" duration="12152000" />
+      <workItem from="1769730556951" duration="8259000" />
     </task>
     <servers />
   </component>

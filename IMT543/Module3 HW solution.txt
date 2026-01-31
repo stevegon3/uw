@@ -1,0 +1,159 @@
+Original (Unnormalized) Table
+Full Name	Physical Address	Items Purchased		Salutation
+John Smith	12th Street Block 7	Laptop			Mr.
+Lisa Anderson	Elm Road House 22	Smartphone, Headphones	Ms.
+George White	Maple Lane Apartment 9	Refrigerator		Mr.
+Emily Clark	Cedar Avenue No. 5	Sofa, Coffee Table	Ms.
+Richard Lee	Oak Street No. 14	Bicycle			Mr.
+Problems:
+•	Items Purchased contains multiple values
+•	Customer and item data are mixed
+•	Redundant data (salutation repeated)
+
+
+-----------------------------------------------------------------------------------------------------------
+1NF
+Action Taken
+Split multiple items into separate rows.
+Table in 1NF
+CustomerID	Full Name	Physical Address	Item Purchased	Salutation
+1		John Smith	12th Street Block 7	Laptop		Mr.
+2		Lisa Anderson	Elm Road House 22	Smartphone	Ms.
+2		Lisa Anderson	Elm Road House 22	Headphones	Ms.
+3		George White	Maple Lane Apartment 9	Refrigerator	Mr.
+4		Emily Clark	Cedar Avenue No. 5	Sofa		Ms.
+4		Emily Clark	Cedar Avenue No. 5	Coffee Table	Ms.
+5		Richard Lee	Oak Street No. 14	Bicycle		Mr.
+
+------------------------------------------------------------------------------------------------------------
+
+2NF
+Rule:
+•	Must already be in 1NF
+•	Remove partial dependencies
+•	Non key attributes must depend on the entire primary key
+Problem Identified
+•	Customer details depend only on CustomerID
+•	Item Purchased depends on purchase, not the customer
+
+Solution
+Split into separate tables.
+________________________________________
+Customers Table (2NF)
+CustomerID	Full Name	Physical Address	Salutation
+1		John Smith	12th Street Block 7	Mr.
+2		Lisa Anderson	Elm Road House 22	Ms.
+3		George White	Maple Lane Apartment 9	Mr.
+4		Emily Clark	Cedar Avenue No. 5	Ms.
+5		Richard Lee	Oak Street No. 14	Mr.
+________________________________________
+Purchases Table (2NF)
+PurchaseID	CustomerID	Item Purchased
+1		1		Laptop
+2		2		Smartphone
+3		2		Headphones
+4		3		Refrigerator
+5		4		Sofa
+6		4		Coffee Table
+7		5		Bicycle
+
+Partial dependencies removed
+
+-------------------------------------------------------------------------------------------------------------
+
+3NF
+Rule:
+•	Must be in 2NF
+•	Remove transitive dependencies
+•	Non key attributes must depend only on the primary key
+Problem Identified
+•	Salutation is descriptive and reusable (Mr., Ms.)
+•	Causes redundancy
+Solution
+Move salutation into its own lookup table.
+________________________________________
+Salutations Table (3NF)
+SalutationID	Salutation
+1		Mr.
+2		Ms.
+________________________________________
+Customers Table (3NF)
+CustomerID	Full Name	Physical Address	SalutationID
+1		John Smith	12th Street Block 7	1
+2		Lisa Anderson	Elm Road House 22	2
+3		George White	Maple Lane Apartment 9	1
+4		Emily Clark	Cedar Avenue No. 5	2
+5		Richard Lee	Oak Street No. 14	1
+________________________________________
+Purchases Table (3NF)
+PurchaseID	CustomerID	Item Purchased
+1		1		Laptop
+2		2		Smartphone
+3		2		Headphones
+4		3		Refrigerator
+5		4		Sofa
+6		4		Coffee Table
+7		5		Bicycle
+
+
+
+
+----------------------------------------------------------------------------------------------------------
+Salutations Table
+
+sql
+CREATE TABLE Salutations (
+    SalutationID INT PRIMARY KEY,
+    Salutation VARCHAR(10) NOT NULL);
+
+Insert Sample Data
+sql
+INSERT INTO Salutations (SalutationID, Salutation)
+VALUES
+(1, 'Mr.'),
+(2, 'Ms.');
+________________________________________
+
+Customers Table
+sql
+
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FullName VARCHAR(100) NOT NULL,
+    PhysicalAddress VARCHAR(200) NOT NULL,
+    SalutationID INT NOT NULL,
+    FOREIGN KEY (SalutationID) REFERENCES Salutations(SalutationID));
+
+Insert Sample Data
+sql
+INSERT INTO Customers (CustomerID, FullName, PhysicalAddress, SalutationID)
+VALUES
+(1, 'John Smith', '12th Street Block 7', 1),
+(2, 'Lisa Anderson', 'Elm Road House 22', 2),
+(3, 'George White', 'Maple Lane Apartment 9', 1),
+(4, 'Emily Clark', 'Cedar Avenue No. 5', 2),
+(5, 'Richard Lee', 'Oak Street No. 14', 1);
+________________________________________
+
+Purchases Table
+sql
+CREATE TABLE Purchases (
+    PurchaseID INT PRIMARY KEY,
+    CustomerID INT NOT NULL,
+    ItemPurchased VARCHAR(100) NOT NULL,
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID));
+
+Insert Sample Data
+sql
+INSERT INTO Purchases (PurchaseID, CustomerID, ItemPurchased)
+VALUES
+(1, 1, 'Laptop'),
+(2, 2, 'Smartphone'),
+(3, 2, 'Headphones'),
+(4, 3, 'Refrigerator'),
+(5, 4, 'Sofa'),
+(6, 4, 'Coffee Table'),
+(7, 5, 'Bicycle');
+
+
+

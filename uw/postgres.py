@@ -3,15 +3,15 @@ import json, inspect, os, datetime, time
 from dataclasses import dataclass
 import pandas as pd
 from contextlib import contextmanager
-from db_helper import list_to_df, normalize_value
-from settings import sett
+from uw.db_helper import list_to_df, normalize_value
+from uw.settings import sett
 
 @dataclass
 class Postgres:
     PostgresHost: str = "ugali"
-    PostgresDB: str = "invest"
+    PostgresDB: str = "uw"
     PostgresPort: str = "5432"
-    PostgresUser: str = "invest_admin"
+    PostgresUser: str = "postgres"
     PostgresPassword: str = "pg_secret"
 
     def __post_init__(self):
@@ -38,7 +38,7 @@ class Postgres:
         """Provides a NEW cursor from the current connection"""
         with self.connection.cursor() as cur:
             # Set search path for this connection
-            cur.execute("SET search_path TO invest,public")
+            cur.execute(f"SET search_path TO {sett.PostgresSchema},public")
             yield cur
 
     @property
@@ -60,7 +60,7 @@ class Postgres:
             try:
                 curs.execute(self.strip_sql(sql))
                 self.connection.commit()
-                if return_headers:
+                if return_headers and curs.description:
                     rows = [[desc[0] for desc in curs.description]]
                 else:
                     rows = []
