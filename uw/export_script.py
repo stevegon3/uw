@@ -55,6 +55,7 @@ def export_sql_to_csv(sql_file: str, output_file: str = None) -> None:
         else:
             res = [['--SQL DML query results:']]
             res += pg.get_rows(sql, return_headers=True)
+            res.insert(2, ['-------------------'])
         with open(output_file, "a") as f:
             f.write(sql + "\n")
             for line in res:

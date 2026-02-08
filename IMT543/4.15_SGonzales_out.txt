@@ -1,11 +1,48 @@
 --1. Table Creation:
 --Write a SQL query to create a table named Books with the following fields:
+SELECT table_name FROM information_schema.tables WHERE table_schema = 'imt543' ORDER BY table_name;
+--SQL DML query results:
+table_name
+-------------------
+authors
+discounts
+employee
+jobs
+pub_info
+publishers
+roysched
+sales
+sample_table
+stores
+titleauthor
+titles
+titleview
+
 CREATE TABLE IF NOT EXISTS Books (
     book_id INT Primary Key,
     title  VARCHAR(100),
     publisher_id INT
 );
 result of DDL query: 1
+
+SELECT table_name FROM information_schema.tables WHERE table_schema = 'imt543' ORDER BY table_name;
+--SQL DML query results:
+table_name
+-------------------
+authors
+books
+discounts
+employee
+jobs
+pub_info
+publishers
+roysched
+sales
+sample_table
+stores
+titleauthor
+titles
+titleview
 
 --2. Insert Data:
 --Write a query to insert one records into the Books table with appropriate values for book_id, title, and publisher_id.
@@ -25,12 +62,14 @@ result of DDL query: 1
 SELECT count(DISTINCT au_id) ct_distinct FROM authors;
 --SQL DML query results:
 ct_distinct
+-------------------
 23
 
 --Should be the same as count(*)
 SELECT count(*) ct FROM authors;
 --SQL DML query results:
 ct
+-------------------
 23
 
 --6. Write a query using an inner join with the employee and publishers table. You will then extract the data from both tables.
@@ -38,6 +77,7 @@ SELECT *
 FROM employee e JOIN publishers p ON e.pub_id=p.pub_id;
 --SQL DML query results:
 emp_id, fname, minit, lname, job_id, job_lvl, pub_id, hire_date, pub_id, pub_name, city, state, country
+-------------------
 PTC11962M, Philip, T, Cramer, 2, 215, 9952, 1989-11-11 00:00:00, 9952, Scootney Books, New York, NY, USA
 AMD15433F, Ann, M, Devon, 3, 200, 9952, 1991-07-16 00:00:00, 9952, Scootney Books, New York, NY, USA
 F-C16315M, Francisco,  , Chang, 4, 227, 9952, 1990-11-03 00:00:00, 9952, Scootney Books, New York, NY, USA
@@ -87,6 +127,7 @@ SELECT *
 FROM employee e LEFT JOIN publishers p ON e.pub_id=p.pub_id;
 --SQL DML query results:
 emp_id, fname, minit, lname, job_id, job_lvl, pub_id, hire_date, pub_id, pub_name, city, state, country
+-------------------
 PTC11962M, Philip, T, Cramer, 2, 215, 9952, 1989-11-11 00:00:00, 9952, Scootney Books, New York, NY, USA
 AMD15433F, Ann, M, Devon, 3, 200, 9952, 1991-07-16 00:00:00, 9952, Scootney Books, New York, NY, USA
 F-C16315M, Francisco,  , Chang, 4, 227, 9952, 1990-11-03 00:00:00, 9952, Scootney Books, New York, NY, USA
@@ -136,6 +177,7 @@ SELECT *
 FROM employee e RIGHT JOIN publishers p ON e.pub_id=p.pub_id;
 --SQL DML query results:
 emp_id, fname, minit, lname, job_id, job_lvl, pub_id, hire_date, pub_id, pub_name, city, state, country
+-------------------
 PTC11962M, Philip, T, Cramer, 2, 215, 9952, 1989-11-11 00:00:00, 9952, Scootney Books, New York, NY, USA
 AMD15433F, Ann, M, Devon, 3, 200, 9952, 1991-07-16 00:00:00, 9952, Scootney Books, New York, NY, USA
 F-C16315M, Francisco,  , Chang, 4, 227, 9952, 1990-11-03 00:00:00, 9952, Scootney Books, New York, NY, USA
@@ -181,10 +223,47 @@ POK93028M, Pirkko, O, Koskitalo, 10, 80, 9999, 1993-11-29 00:00:00, 9999, Lucern
 PCM98509F, Patricia, C, McKenna, 11, 150, 9999, 1989-08-01 00:00:00, 9999, Lucerne Publishing, Paris, None, France
 
 --9. Write an ALTER TABLE query to add a new column named author (VARCHAR(100)) to the Books table.
+SELECT column_name,data_type
+FROM information_schema.columns WHERE table_schema iLIKE 'imt543' AND table_name ilike 'Books' ORDER BY table_name, column_name;
+--SQL DML query results:
+column_name, data_type
+-------------------
+book_id, integer
+publisher_id, integer
+title, character varying
+
 ALTER TABLE Books ADD COLUMN author varchar(100);
 result of DDL query: 1
+
+SELECT column_name,data_type
+FROM information_schema.columns WHERE table_schema iLIKE 'imt543' AND table_name ilike 'Books' ORDER BY table_name, column_name;
+--SQL DML query results:
+column_name, data_type
+-------------------
+author, character varying
+book_id, integer
+publisher_id, integer
+title, character varying
 
 --10. Write a SQL query to drop the Books table from the database.
 DROP TABLE Books;
 result of DDL query: 1
+
+SELECT table_name FROM information_schema.tables WHERE table_schema = 'imt543' ORDER BY table_name;
+--SQL DML query results:
+table_name
+-------------------
+authors
+discounts
+employee
+jobs
+pub_info
+publishers
+roysched
+sales
+sample_table
+stores
+titleauthor
+titles
+titleview
 

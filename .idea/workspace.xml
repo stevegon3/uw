@@ -5,7 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4bf2b6c-f31a-43c2-aae2-9e18d8906427" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/IMT543/5.14_SGonzales_out.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMT543/6.12_SGonzales.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMT543/7.10_SGonzales_Monitor.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMT543/Northwinds/dml.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMT543/Northwinds/northwinds_ddl.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMT543/Northwinds/view.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../imt575_final/Final Project v5.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT543/4.15_SGonzales.sql" beforeDir="false" afterPath="$PROJECT_DIR$/IMT543/4.15_SGonzales.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT543/4.15_SGonzales_out.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/IMT543/4.15_SGonzales_out.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT543/4.15_SGonzales_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/IMT543/4.15_SGonzales_out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT543/CREATE_TABLE_sample_table__id_int_NOT_NU.md" beforeDir="false" afterPath="$PROJECT_DIR$/IMT543/3.15_SGonzales_DDL.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT543/DROP_TABLE_IF_EXISTS_sample_table.md" beforeDir="false" afterPath="$PROJECT_DIR$/IMT543/4.15_SGonzales_part2.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT543/INSERT_INTO_sample_table_id__sample_varc.md" beforeDir="false" afterPath="$PROJECT_DIR$/IMT543/5.14_SGonzales.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT543/SELECT_FROM_authors.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT543/SELECT_FROM_authors_WHERE_state_IN___CA.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT543/SELECT_FROM_authors_WHERE_state____CA.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT543/SELECT_FROM_publishers.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT543/SELECT_FROM_sample_table.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT543/SELECT_FROM_stores.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT543/SELECT_FROM_titles.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT543/SELECT_FROM_titles_WHERE_TYPE_IN___busin.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT543/SELECT_FROM_titles_WHERE_price_20.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT543/SELECT__authors__tbl__count___ct_FROM_au.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT543/SELECT_stor_id_store__ord_date_order_dat.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT543/project_draft_1.sql" beforeDir="false" afterPath="$PROJECT_DIR$/IMT543/project_draft_1.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uw/export_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/uw/export_script.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +43,15 @@
       <entry key="_/Users/stevegon/SynologyDrive/code/uw" value="2zYK3n7bLU7vSPZEd7VTEuNozUf" />
     </persistenceIdMap>
   </component>
+  <component name="CopilotUserSelectedModel">
+    <selectedModels>
+      <entry key="edit-panel" value="GPT-5 mini" />
+      <entry key="chat-panel" value="GPT-5 mini" />
+      <entry key="agent-panel" value="GPT-5 mini" />
+    </selectedModels>
+  </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="87903" />
+    <option name="cachedIndexableFilesCount" value="87915" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="ExportToHTMLSettings">
@@ -107,8 +140,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.29346.308" />
-        <option value="bundled-python-sdk-ca5e2b39c7df-6e1f45a539f7-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.29346.308" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PY-253.30387.173" />
+        <option value="bundled-python-sdk-4762d8aabb82-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.30387.173" />
       </set>
     </attachedChunks>
   </component>
@@ -199,7 +232,12 @@
       <workItem from="1769467017842" duration="598000" />
       <workItem from="1769467738138" duration="37000" />
       <workItem from="1769468232679" duration="12152000" />
-      <workItem from="1769730556951" duration="10068000" />
+      <workItem from="1769730556951" duration="53738000" />
+      <workItem from="1770512100346" duration="263000" />
+      <workItem from="1770512400689" duration="1857000" />
+      <workItem from="1770514325976" duration="4594000" />
+      <workItem from="1770581886731" duration="753000" />
+      <workItem from="1770582671347" duration="1002000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>7.10_SGonzales_Monitor.ipynb</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #bcbec4;}
+.ls0 { height: 1px; border-width: 0; color: #43454a; background-color:#43454a}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+7.10_SGonzales_Monitor.ipynb</font>
+</center></td></tr></table>
+<pre><span class="s0">#%% md 
+# Assignment 7.10 Database Monitoring <hr class="ls0">#%% md 
+I am using Postgres (allowed as per Professor Gridiron) and I installed `pg-view` and `pg-activity` on Ubuntu (ugali is my computer name): 
+``` 
+pip3 install pg_view pg_activity 
+``` <hr class="ls0">#%% md 
+I then ran `pg_activity` which brings up some basic stats on your database like the uptime, size, number of sessions/processes and some other basic info.&lt;p&gt; 
+I noticed that the size does not seem to be accurate; I will investigate to find out why. 
+```bash 
+pg_activity -h ugali -U postgres -d postgres 
+``` 
+As I ran this query below, I took a screenshot while it shows the active query; you can see I ran the query from DBeaver, an open source Query tool that can be used with Postgres, SQL Server and possibly a hundred additional databases. <hr class="ls0">#%% md 
+```SQL 
+SELECT * FROM put_quote ORDER BY day_seq,etl_time_pac desc; 
+``` 
+![image.png](attachment:cea8ac18-4a0c-4f52-be79-64d9991da4a4.png) <hr class="ls0">#%% md 
+It turns out that pg_view is an older, less maintained version and it did not work with my version of Postgres. But it looks like pg_activity has all the same major features. <hr class="ls0">#%% md 
+I restarted `pg_activity` with the switch `--db-size` and now it shows the database size:&lt;p&gt; 
+![image.png](attachment:1f5e9b1a-2e99-4772-ace3-5e4399854041.png)&lt;p&gt; 
+Size is not calculated by default because it likely has a CPU or disk overhead; so the user needs to affirmatively pass that argument. 
+ <hr class="ls0">#%% md 
+One big potential issue with Databases is when multiple users try to write and read the same data at the same time. I am going to simulate a &quot;dead lock&quot; where one user is trying to write data and another user tries to read that date before it is written to see if we can learn anything from `pg_activity`. <hr class="ls0">#%% md 
+```sql 
+-- Example 1: Row-level lock using FOR UPDATE 
+-- Setup (run once) 
+DROP TABLE IF EXISTS inventory; 
+CREATE TABLE inventory (id serial PRIMARY KEY, qty int); 
+INSERT INTO inventory (qty) VALUES (10); 
+ 
+-- Session A: 
+BEGIN; 
+-- acquires a row lock on id=1 and holds it until COMMIT/ROLLBACK 
+SELECT * FROM inventory WHERE id = 1 FOR UPDATE; 
+ 
+-- (keep this transaction open) 
+ 
+-- Session B (will block until Session A commits/rolls back): 
+BEGIN; 
+-- this UPDATE needs the same row lock and will wait 
+UPDATE inventory SET qty = qty - 1 WHERE id = 1; 
+-- once Session A COMMITs, this UPDATE will complete 
+``` 
+Now this is what `pg_activity` looks like: 
+![image.png](attachment:652bb923-5bf2-4855-9c09-291667278a5e.png) 
+ 
+Normally, there are no queries listed here unless it is a long running query; the ones above are very small, but there is a dead lock situation where this will never complete if I don't end one of the sessions. <hr class="ls0">#%% md 
+```sql 
+-- To release the lock in Session A: 
+COMMIT;  -- then Session B's UPDATE proceeds 
+``` 
+I just committed the above transaction.&lt;p&gt; 
+![image.png](attachment:63f36c88-a203-40f2-8412-a57c4da7b2c1.png) 
+ 
+Finally, I commit Session B and all the queries dissapper:&lt;p&gt; 
+![image.png](attachment:a0f53a26-c5b3-4dba-85da-b9a586ddff04.png) <hr class="ls0">#%% md 
+## Conclusion 
+pg_activity is a lightweight, practical tool for interactive monitoring: 
+ - it quickly reveals active queries, blocking relationships, and (with --db-size) database size. 
+ - pg_view should be avoided on newer Postgres versions; prefer pg_activity. 
+ - the locking examples validated that long-lived transactions produce visible blocking in pg_activity, making it useful for diagnosing concurrency issues.</span></pre>
+</body>
+</html>
