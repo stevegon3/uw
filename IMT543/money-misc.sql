@@ -1,0 +1,1 @@
+SELECT * FROM information_schema.TABLES WHERE table_schema ILIKE 'money' ORDER BY table_name;

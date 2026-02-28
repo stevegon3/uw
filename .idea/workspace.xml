@@ -5,33 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4bf2b6c-f31a-43c2-aae2-9e18d8906427" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/IMT543/5.14_SGonzales_out.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IMT543/6.12_SGonzales.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IMT543/7.10_SGonzales_Monitor.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IMT543/Northwinds/dml.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IMT543/Northwinds/northwinds_ddl.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IMT543/Northwinds/view.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMT543/4.16_SGonzales_DDL.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMT543/4.16_SGonzales_RevisedERD_v2.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMT543/6.14_SGonzales_DDL.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMT543/6.14_SGonzales_DML.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMT543/9.14_SGonzales_DML.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IMT543/Northwinds/login.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../imt575_final/Final Project v5.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT543/4.15_SGonzales.sql" beforeDir="false" afterPath="$PROJECT_DIR$/IMT543/4.15_SGonzales.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT543/4.15_SGonzales_out.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/IMT543/4.15_SGonzales_out.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT543/4.15_SGonzales_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/IMT543/4.15_SGonzales_out.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT543/CREATE_TABLE_sample_table__id_int_NOT_NU.md" beforeDir="false" afterPath="$PROJECT_DIR$/IMT543/3.15_SGonzales_DDL.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT543/DROP_TABLE_IF_EXISTS_sample_table.md" beforeDir="false" afterPath="$PROJECT_DIR$/IMT543/4.15_SGonzales_part2.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT543/INSERT_INTO_sample_table_id__sample_varc.md" beforeDir="false" afterPath="$PROJECT_DIR$/IMT543/5.14_SGonzales.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT543/SELECT_FROM_authors.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT543/SELECT_FROM_authors_WHERE_state_IN___CA.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT543/SELECT_FROM_authors_WHERE_state____CA.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT543/SELECT_FROM_publishers.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT543/SELECT_FROM_sample_table.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT543/SELECT_FROM_stores.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT543/SELECT_FROM_titles.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT543/SELECT_FROM_titles_WHERE_TYPE_IN___busin.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT543/SELECT_FROM_titles_WHERE_price_20.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT543/SELECT__authors__tbl__count___ct_FROM_au.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT543/SELECT_stor_id_store__ord_date_order_dat.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IMT543/project_draft_1.sql" beforeDir="false" afterPath="$PROJECT_DIR$/IMT543/project_draft_1.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uw/export_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/uw/export_script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT543/4.16_SGonzales_RevisedERD.docx" beforeDir="false" afterPath="$PROJECT_DIR$/IMT543/4.16_SGonzales_RevisedERD.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT543/Northwinds/dml.sql" beforeDir="false" afterPath="$PROJECT_DIR$/IMT543/Northwinds/dml.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT543/sessionA.sql" beforeDir="false" afterPath="$PROJECT_DIR$/IMT543/sessionA.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMT543/sessionB.sql" beforeDir="false" afterPath="$PROJECT_DIR$/IMT543/sessionB.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +36,7 @@
     </selectedModels>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="87915" />
+    <option name="cachedIndexableFilesCount" value="87921" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="ExportToHTMLSettings">
@@ -237,7 +222,9 @@
       <workItem from="1770512400689" duration="1857000" />
       <workItem from="1770514325976" duration="4594000" />
       <workItem from="1770581886731" duration="753000" />
-      <workItem from="1770582671347" duration="1002000" />
+      <workItem from="1770582671347" duration="38132000" />
+      <workItem from="1771049765357" duration="597000" />
+      <workItem from="1771051418689" duration="20301000" />
     </task>
     <servers />
   </component>
